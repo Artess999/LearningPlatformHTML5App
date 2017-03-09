@@ -19,9 +19,7 @@ function CorrectStyle(breakpoint) {
     }
     else {
         document.getElementsByTagName("footer")[0].style.position = "static";
-
         document.getElementById("content").style.height = height;
-        document.getElementById("content").style.minHeight = height;
         //$("#index").removeClass("show");
 
         $(".indexButton").attr({
@@ -48,6 +46,10 @@ $(document).ready(
         CorrectStyle(breakpoint);
         if (window.innerWidth < breakpoint) {
             $("#index").removeClass("show");
+            var height1 = $("header").outerHeight(true);
+            var height2 = $("footer").outerHeight(true);
+            var height = window.innerHeight - (height1 + height2) + "px";
+            document.getElementById("content").style.minHeight = height;
         }
     }
 );
