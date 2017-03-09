@@ -19,10 +19,10 @@ function CorrectStyle(breakpoint) {
     }
     else {
         document.getElementsByTagName("footer")[0].style.position = "static";
-        document.getElementById("content").style.height = height;
-        //$("#index").removeClass("show");
 
-        document.getElementById("body").style.height = window.innerHeight;
+        document.getElementById("content").style.height = height;
+        document.getElementById("content").style.minHeight = height;
+        //$("#index").removeClass("show");
 
         $(".indexButton").attr({
             "data-toggle": "collapse",
