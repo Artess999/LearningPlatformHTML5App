@@ -30,10 +30,13 @@ aside.hidden {
 
 aside ul li {
     list-style: none;
+    padding: 5px 0;
 }
-
-.hidden{
-    display: none;
+aside ul li span.fa-caret-down{
+    float: right;
+}
+aside ul {
+    padding-left: 20px;
 }
 
 .content {

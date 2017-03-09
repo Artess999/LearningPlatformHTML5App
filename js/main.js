@@ -79,14 +79,13 @@ function BuildList(elems) {
                 if (typeof el.tagName === "string" && el.id.startsWith("p")) {
                     elem.onclick = function (e) {
                         let classes = el.classList;
-                        classes.contains("hidden") ? classes.remove("hidden") : classes.add("hidden");
+                        classes.contains("collapse") ? classes.remove("collapse") : classes.add("collapse");
                         e.stopPropagation();
                     };
                     BuildList(el.childNodes);
                 }
             }
-        }
-        ;
+        };
     }
 }
 
