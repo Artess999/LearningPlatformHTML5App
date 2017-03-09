@@ -20,7 +20,7 @@ function CorrectStyle(breakpoint) {
     else {
         document.getElementsByTagName("footer")[0].style.position = "static";
         document.getElementById("content").style.height = height;
-        $("#index").removeClass("show");
+        //$("#index").removeClass("show");
 
         $(".indexButton").attr({
             "data-toggle": "collapse",
@@ -44,12 +44,16 @@ $(document).ready(
         /*        if (window.innerWidth < breakpoint)
          $("#index").removeClass("show");*/
         CorrectStyle(breakpoint);
+        if (window.innerWidth < breakpoint) {
+            $("#index").removeClass("show");
+        }
     }
 );
 
-window.onresize = function () {
+window.onresize = function (e) {
         CorrectStyle(breakpoint);
         ButtonEvent();
+        console.log(e);
 }
 
 
