@@ -17,8 +17,6 @@ function CorrectStyle(breakpoint) {
     }
     else {
         document.getElementsByTagName("footer")[0].style.position = "static";
-        /*        document.getElementById("index").style.height = "auto";
-         document.getElementById("content").style.height = "auto";*/
         document.getElementById("content").style.height = height;
         $("#index").removeClass("show");
     }
@@ -50,9 +48,10 @@ $(document).ready(
 );
 
 window.onresize = function () {
-    console.log(232);
-    CorrectStyle(breakpoint);
-    ButtonEvent();
+    if (window.innerWidth > breakpoint) {
+        CorrectStyle(breakpoint);
+        ButtonEvent();
+    }
 }
 
 
