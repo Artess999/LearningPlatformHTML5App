@@ -14,11 +14,18 @@ function CorrectStyle(breakpoint) {
         document.getElementById("content").style.height = height;
         $("#index").addClass("show");
 
+        $(".indexButton").removeAttr("data-toggle");
+        $(".indexButton").removeAttr("data-target");
     }
     else {
         document.getElementsByTagName("footer")[0].style.position = "static";
         document.getElementById("content").style.height = height;
         $("#index").removeClass("show");
+
+        $(".indexButton").attr({
+            "data-toggle": "collapse",
+            "data-target": "#index"
+        });
     }
 }
 
@@ -26,15 +33,8 @@ function ButtonEvent() {
     $(".indexButton").click(function () {
         if (window.innerWidth > breakpoint) {
             $("aside").toggleClass("hidden");
-            $(".content").toggleClass("col-md-12");
-            $(".indexButton").removeAttribute("data-toggle");
-            $(".indexButton").removeAttribute("data-target");
-        } else {
-            $(".indexButton").attr({
-                "data-toggle": "collapse",
-                "data-target": "#index"
-            });
-        }
+            $(".content").toggleClass("col-md-12")
+        };
         $(".indexButton i").toggleClass("fa-book fa-times");
     });
 }
@@ -48,8 +48,8 @@ $(document).ready(
 );
 
 window.onresize = function () {
-    CorrectStyle(breakpoint);
-    ButtonEvent();
+        CorrectStyle(breakpoint);
+        ButtonEvent();
 }
 
 
@@ -82,12 +82,11 @@ function BuildList(elems) {
                     BuildList(el.childNodes);
                 }
             }
-        }
-        ;
+        };
     }
 }
 
-BuildList(elems)
+BuildList(elems);
 
 $("ul li").click(function (e) {
     e.stopPropagation();
