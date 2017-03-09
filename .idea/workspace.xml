@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="562af40d-bef6-4e61-9efe-2822d4dce954" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -288,7 +287,7 @@
       <workItem from="1486538899227" duration="23554000" />
       <workItem from="1486639984676" duration="5863000" />
       <workItem from="1486732674686" duration="2952000" />
-      <workItem from="1489046562919" duration="15738000" />
+      <workItem from="1489046562919" duration="15749000" />
     </task>
     <task id="LOCAL-00001" summary="little improvments">
       <created>1489061300208</created>
@@ -304,11 +303,18 @@
       <option name="project" value="LOCAL" />
       <updated>1489062072168</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="little improvments">
+      <created>1489062494717</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1489062494717</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67387000" />
+    <option name="totallyTimeSpent" value="67398000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="12" y="161" width="1255" height="687" extended-state="0" />
