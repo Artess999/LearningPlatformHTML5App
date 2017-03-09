@@ -22,6 +22,8 @@ function CorrectStyle(breakpoint) {
         document.getElementById("content").style.height = height;
         //$("#index").removeClass("show");
 
+        document.getElementById("body").style.height = window.innerHeight;
+
         $(".indexButton").attr({
             "data-toggle": "collapse",
             "data-target": "#index"
