@@ -48,10 +48,8 @@ $(document).ready(
 );
 
 window.onresize = function () {
-    if (window.innerWidth > breakpoint) {
-        CorrectStyle(breakpoint);
-        ButtonEvent();
-    }
+    CorrectStyle(breakpoint);
+    ButtonEvent();
 }
 
 
@@ -84,7 +82,8 @@ function BuildList(elems) {
                     BuildList(el.childNodes);
                 }
             }
-        };
+        }
+        ;
     }
 }
 
