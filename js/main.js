@@ -1,7 +1,7 @@
 /**
  * Created by Artem on 08.02.2017.
  */
-var breakpoint = 767;
+const breakpoint = 767;
 
 
 function CorrectStyle(breakpoint) {
@@ -17,8 +17,8 @@ function CorrectStyle(breakpoint) {
     }
     else {
         document.getElementsByTagName("footer")[0].style.position = "static";
-/*        document.getElementById("index").style.height = "auto";
-        document.getElementById("content").style.height = "auto";*/
+        /*        document.getElementById("index").style.height = "auto";
+         document.getElementById("content").style.height = "auto";*/
         document.getElementById("content").style.height = height;
         $("#index").removeClass("show");
     }
@@ -26,19 +26,26 @@ function CorrectStyle(breakpoint) {
 
 function ButtonEvent() {
     $(".indexButton").click(function () {
-        $("aside").toggleClass("hidden");
-        $(".content").toggleClass("col-md-12");
-
+        if (window.innerWidth > breakpoint) {
+            $("aside").toggleClass("hidden");
+            $(".content").toggleClass("col-md-12");
+            $(".indexButton").removeAttribute("data-toggle");
+            $(".indexButton").removeAttribute("data-target");
+        } else {
+            $(".indexButton").attr({
+                "data-toggle": "collapse",
+                "data-target": "#index"
+            });
+        }
         $(".indexButton i").toggleClass("fa-book fa-times");
     });
 }
 
 $(document).ready(
     function () {
-/*        if (window.innerWidth < breakpoint)
-            $("#index").removeClass("show");*/
+        /*        if (window.innerWidth < breakpoint)
+         $("#index").removeClass("show");*/
         CorrectStyle(breakpoint);
-
     }
 );
 
@@ -47,7 +54,6 @@ window.onresize = function () {
     CorrectStyle(breakpoint);
     ButtonEvent();
 }
-
 
 
 $(".next").click(function () {
@@ -59,9 +65,33 @@ $(".next").click(function () {
 
 $(".previous").click(function () {
     $.getJSON("http://localhost:63342/LearningPlatformHTML5App/JSONProvider.php?id=1",
-    function (data) {
-        $(".currentPageText").text(data.text)
-    })
-
+        function (data) {
+            $(".currentPageText").text(data.text)
+        })
 })
 
+var elems = document.getElementById("index-list").childNodes;
+
+function BuildList(elems) {
+    for (let elem of elems) {
+        if (typeof elem.tagName === "string" && elem.id.startsWith("for")) {
+            for (let el of elem.childNodes) {
+                if (typeof el.tagName === "string" && el.id.startsWith("p")) {
+                    elem.onclick = function (e) {
+                        let classes = el.classList;
+                        classes.contains("hidden") ? classes.remove("hidden") : classes.add("hidden");
+                        e.stopPropagation();
+                    };
+                    BuildList(el.childNodes);
+                }
+            }
+        }
+        ;
+    }
+}
+
+BuildList(elems)
+
+$("ul li").click(function (e) {
+    e.stopPropagation();
+})

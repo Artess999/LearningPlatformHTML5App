@@ -28,6 +28,14 @@ aside.hidden {
     margin-left: -25.5%;
 }
 
+aside ul li {
+    list-style: none;
+}
+
+.hidden{
+    display: none;
+}
+
 .content {
     /*background-color: greenyellow;*/
     /*overflow: auto;*/
@@ -75,4 +83,6 @@ aside.hidden {
     padding: 0;
 }
 
-@media screen and (max-width: 786px) {}
+@media screen and (max-width: 786px) {
+
+}
