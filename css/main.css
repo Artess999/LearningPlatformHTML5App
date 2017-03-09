@@ -87,5 +87,8 @@ aside ul {
 }
 
 @media screen and (max-width: 786px) {
-
+    .currentPage {
+        height: auto;
+        min-height: calc(100% - 40px);
+    }
 }
