@@ -43,6 +43,7 @@ class Display {
     onResize() {
         if (this.width > this.breakpoint && window.innerWidth < this.breakpoint) {
             $(".indexButton i").addClass("fa-book").removeClass("fa-times");
+            document.getElementById("navbar-collapse").classList.add("collapse");
         }
         if (this.width < this.breakpoint && window.innerWidth > this.breakpoint) {
             $(".indexButton i").addClass("fa-times").removeClass("fa-book");
