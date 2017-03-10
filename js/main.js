@@ -65,13 +65,13 @@ let display = new Display(breakpoint);
 
 
 document.getElementById("indexButton").onclick = function () {
+    $(".indexButton i").toggleClass("fa-book fa-times");
     if (window.innerWidth > breakpoint) {
         $("aside").toggleClass("hidden");
         $(".content").toggleClass("col-md-12")
     } else {
         $("aside").collapse("toggle");
     }
-    $(".indexButton i").toggleClass("fa-book fa-times");
 };
 
 
