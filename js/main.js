@@ -5,15 +5,18 @@ const breakpoint = 767;
 
 class Display {
     constructor(breakpoint) {
-        this.headerHeigth = $("header").outerHeight(true);
-        this.footerHeight = $("footer").outerHeight(true);
-        this.mainHeight = window.innerHeight - (this.headerHeigth + this.footerHeight);
-        this.width = window.innerWidth;
-
+        this.setCurrentSizes();
         this.breakpoint = breakpoint;
 
         this._initial();
         this.correctStyle();
+    }
+
+    setCurrentSizes(){
+        this.headerHeigth = $("header").outerHeight(true);
+        this.footerHeight = $("footer").outerHeight(true);
+        this.mainHeight = window.innerHeight - (this.headerHeigth + this.footerHeight);
+        this.width = window.innerWidth;
     }
 
     _initial() {
@@ -47,14 +50,9 @@ class Display {
         }
         if (this.width < this.breakpoint && window.innerWidth > this.breakpoint) {
             $(".indexButton i").addClass("fa-times").removeClass("fa-book");
-
             document.getElementById("content").classList.remove("col-md-12");
         }
-
-        this.width = window.innerWidth;
-        this.headerHeigth = $("header").outerHeight(true);
-        this.footerHeight = $("footer").outerHeight(true);
-        this.mainHeight = window.innerHeight - (this.headerHeigth + this.footerHeight);
+        this.setCurrentSizes();
         this.correctStyle();
     }
 }
