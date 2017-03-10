@@ -87,7 +87,5 @@ aside ul {
 }
 
 @media screen and (max-width: 786px) {
-    .content {
-        min-width: calc(100% - 120px);
-    }
+
 }

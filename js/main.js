@@ -3,62 +3,73 @@
  */
 const breakpoint = 767;
 
+class Display {
+    constructor(breakpoint) {
+        this.headerHeigth = $("header").outerHeight(true);
+        this.footerHeight = $("footer").outerHeight(true);
+        this.mainHeight = window.innerHeight - (this.headerHeigth + this.footerHeight);
+        this.width = window.innerWidth;
 
-function CorrectStyle(breakpoint) {
-    var height1 = $("header").outerHeight(true);
-    var height2 = $("footer").outerHeight(true);
-    var height = window.innerHeight - (height1 + height2) + "px";
-    ButtonEvent();
-    if (window.innerWidth > breakpoint) {
-        document.getElementById("index").style.height = height;
-        document.getElementById("content").style.height = height;
-        $("#index").addClass("show");
+        this.breakpoint = breakpoint;
 
-        $(".indexButton").removeAttr("data-toggle");
-        $(".indexButton").removeAttr("data-target");
+        this._initial();
+        this.correctStyle();
     }
-    else {
-        document.getElementsByTagName("footer")[0].style.position = "static";
-        document.getElementById("content").style.height = height;
-        //$("#index").removeClass("show");
 
-        $(".indexButton").attr({
-            "data-toggle": "collapse",
-            "data-target": "#index"
-        });
-    }
-}
-
-function ButtonEvent() {
-    $(".indexButton").click(function () {
-        if (window.innerWidth > breakpoint) {
-            $("aside").toggleClass("hidden");
-            $(".content").toggleClass("col-md-12")
-        };
-        $(".indexButton i").toggleClass("fa-book fa-times");
-    });
-}
-
-$(document).ready(
-    function () {
-        /*        if (window.innerWidth < breakpoint)
-         $("#index").removeClass("show");*/
-        CorrectStyle(breakpoint);
-        if (window.innerWidth < breakpoint) {
+    _initial() {
+        if (this.width < this.breakpoint) {
+            document.getElementById("content").style.minHeight = this.mainHeight + "px";
             $("#index").removeClass("show");
-            var height1 = $("header").outerHeight(true);
-            var height2 = $("footer").outerHeight(true);
-            var height = window.innerHeight - (height1 + height2) + "px";
-            document.getElementById("content").style.minHeight = height;
+            $(".indexButton i").toggleClass("fa-book fa-times");
         }
     }
-);
 
-window.onresize = function (e) {
-        CorrectStyle(breakpoint);
-        ButtonEvent();
-        console.log(e);
+    correctStyle() {
+        if (this.width > this.breakpoint) {
+            document.getElementById("index").style.height = this.mainHeight + "px";
+            document.getElementById("content").style.height = this.mainHeight + "px";
+
+            document.getElementById("index").classList.remove("collapse");
+        }
+        else {
+            document.getElementsByTagName("footer")[0].style.position = "static";
+            document.getElementById("content").style.height = this.mainHeight + "px";
+
+            document.getElementById("index").classList.remove("hidden");
+            document.getElementById("index").classList.add("collapse");
+        }
+    }
+
+    onResize() {
+        if (this.width > this.breakpoint && window.innerWidth < this.breakpoint) {
+            $(".indexButton i").addClass("fa-book").removeClass("fa-times");
+        }
+        if (this.width < this.breakpoint && window.innerWidth > this.breakpoint) {
+            $(".indexButton i").addClass("fa-times").removeClass("fa-book");
+
+            document.getElementById("content").classList.remove("col-md-12");
+        }
+
+        this.width = window.innerWidth;
+        this.headerHeigth = $("header").outerHeight(true);
+        this.footerHeight = $("footer").outerHeight(true);
+        this.mainHeight = window.innerHeight - (this.headerHeigth + this.footerHeight);
+        this.correctStyle();
+    }
 }
+
+let display = new Display(breakpoint);
+
+
+document.getElementById("indexButton").onclick = function () {
+    if (window.innerWidth > breakpoint) {
+        $("aside").toggleClass("hidden");
+        $(".content").toggleClass("col-md-12")
+    } else {
+        $("aside").collapse("toggle");
+    }
+    $(".indexButton i").toggleClass("fa-book fa-times");
+};
 
 
 $(".next").click(function () {
@@ -66,16 +77,16 @@ $(".next").click(function () {
         function (data) {
             $(".currentPageText").text(data.text)
         })
-})
+});
 
 $(".previous").click(function () {
     $.getJSON("http://localhost:63342/LearningPlatformHTML5App/JSONProvider.php?id=1",
         function (data) {
             $(".currentPageText").text(data.text)
         })
-})
+});
 
-var elems = document.getElementById("index-list").childNodes;
+let elems = document.getElementById("index-list").childNodes;
 
 function BuildList(elems) {
     for (let elem of elems) {
@@ -90,7 +101,7 @@ function BuildList(elems) {
                     BuildList(el.childNodes);
                 }
             }
-        };
+        }
     }
 }
 
@@ -98,4 +109,4 @@ BuildList(elems);
 
 $("ul li").click(function (e) {
     e.stopPropagation();
-})
+});
