@@ -20,7 +20,9 @@ class Display {
     }
 
     _initial() {
+        this.minHeight = "0px";
         if (this.width < this.breakpoint) {
+            this.minHeight = this.mainHeight + "px";
             document.getElementById("content").style.minHeight = this.mainHeight + "px";
             $("#index").removeClass("show");
             $(".indexButton i").toggleClass("fa-book fa-times");
@@ -47,10 +49,12 @@ class Display {
         if (this.width > this.breakpoint && window.innerWidth < this.breakpoint) {
             $(".indexButton i").addClass("fa-book").removeClass("fa-times");
             document.getElementById("navbar-collapse").classList.remove("show");
+            document.getElementById("content").style.minHeight = this.minHeight;
         }
         if (this.width < this.breakpoint && window.innerWidth > this.breakpoint) {
             $(".indexButton i").addClass("fa-times").removeClass("fa-book");
             document.getElementById("content").classList.remove("col-md-12");
+            document.getElementById("content").style.minHeight = "0px";
         }
         this.setCurrentSizes();
         this.correctStyle();
