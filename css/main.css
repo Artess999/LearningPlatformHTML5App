@@ -6,6 +6,14 @@ header {
     margin-bottom: 3px;
 }
 
+#header {
+    flex-direction: row-reverse;
+}
+
+#title {
+    text-align: right;
+}
+
 footer {
     background-color: #2aabd2;
     padding: 20px 0;
@@ -32,9 +40,11 @@ aside ul li {
     list-style: none;
     padding: 5px 0;
 }
-aside ul li span.fa-caret-down{
+
+aside ul li span.fa-caret-down {
     float: right;
 }
+
 aside ul {
     padding-left: 20px;
 }
@@ -86,6 +96,8 @@ aside ul {
     padding: 0;
 }
 
-@media screen and (max-width: 786px) {
-
+@media screen and (max-width: 767px) {
+    #header {
+        flex-direction: column;
+    }
 }

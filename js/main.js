@@ -62,7 +62,7 @@ class Display {
 }
 
 let display = new Display(breakpoint);
-
+window.onresize = () => display.onResize();
 
 document.getElementById("indexButton").onclick = function () {
     $(".indexButton i").toggleClass("fa-book fa-times");
