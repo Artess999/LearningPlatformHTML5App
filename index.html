@@ -6,34 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Title</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="iconfont/material-icons.css">
     <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body class="bg-faded">
+<body class="bg-faded" id="body">
 <header class="navbar navbar-light navbar-toggleable-sm" id="header">
     <h1 class="navbar-brand lead" id="title">Учебное пособие</h1>
     <button type="button" class="navbar-toggler navbar-toggler-left" data-toggle="collapse"
-            data-target=".navbar-collapse"><span class="navbar-toggler-icon"></span></button>
+            data-target=".navbar-collapse"><i class="material-icons">menu</i></button>
     <div id="navbar-collapse" class="collapse navbar-collapse">
-        <button type="button" id="indexButton" class="indexButton btn btn-outline-primary"><i
-                class="fa fa-2x fa-times"></i></button>
+        <button type="button" id="indexButton" class="indexButton btn">
+            <i class="material-icons md-36">clear</i>
+        </button>
     </div>
 </header>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-3 col-12 index-container" id = "index-container">
+        <div class="col-md-3 col-12 index-container" id="index-container">
             <aside id="index">
                 <ul class="nav flex-column" id="index-list">
-                    <li id="for-p1">Глава1<span class="fa fa-caret-down"></span>
+                    <li id="for-p1">Глава1<i class="material-icons">arrow_drop_down</i>
                         <ul id="p1" class="collapse">
-                            <li id="for-p1.1">1<span class="fa fa-caret-down"></span>
+                            <li id="for-p1.1">1<i class="material-icons">arrow_drop_down</i>
                                 <ul id="p1.1">
                                     <li>1</li>
                                     <li>1</li>
                                 </ul>
                             </li>
-                            <li id="for-p1.2">1<span class="fa fa-caret-down"></span>
+                            <li id="for-p1.2">1<i class="material-icons">arrow_drop_down</i>
                                 <ul id="p1.2">
                                     <li>1</li>
                                     <li>1</li>
@@ -41,13 +42,13 @@
                             </li>
                         </ul>
                     </li>
-                    <li id="for-p2">Глава2<span class="fa fa-caret-down"></span>
+                    <li id="for-p2">Глава2<i class="material-icons">arrow_drop_down</i>
                         <ul id="p2">
                             <li>1</li>
                             <li>1</li>
                         </ul>
                     </li>
-                    <li id="for-p3">Глава3<span class="fa fa-caret-down"></span>
+                    <li id="for-p3">Глава3<i class="material-icons">arrow_drop_down</i>
                         <ul id="p3">
                             <li>1</li>
                             <li>1</li>
@@ -59,8 +60,10 @@
         <main id="content" class="content col-md-9 col-12">
             <div class="container currentPageContainer">
                 <div class="card currentPage">
-                    <div class="card-header controlfunctions"><i class="previous fa fa-2x fa-chevron-left"></i> <i
-                            class="next fa fa-2x fa-chevron-right"></i></div>
+                    <div class="card-header controlfunctions">
+                        <i class="previous material-icons">navigate_before</i>
+                        <i class="next material-icons">navigate_next</i>
+                    </div>
                     <div class="card-block currentPageText">Hello, World! Hello, World!Hello, World!Hello, World!Hello,
                         World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello,
                         World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello, World!Hello,

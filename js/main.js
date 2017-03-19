@@ -25,7 +25,9 @@ class Display {
             this.minHeight = this.mainHeight + "px";
             document.getElementById("content").style.minHeight = this.mainHeight + "px";
             $("#index").removeClass("show");
-            $(".indexButton i").toggleClass("fa-book fa-times");
+            let buttonText = $(".indexButton i").text();
+            buttonText === "list" ? buttonText = "clear" : buttonText = "list";
+            $(".indexButton i").text(buttonText);
         }
     }
 
@@ -40,19 +42,19 @@ class Display {
             document.getElementsByTagName("footer")[0].style.position = "static";
             document.getElementById("content").style.height = this.mainHeight + "px";
 
-            document.getElementById("index").classList.remove("hidden");
+            document.getElementById("index-container").classList.remove("hidden");
             document.getElementById("index").classList.add("collapse");
         }
     }
 
     onResize() {
         if (this.width > this.breakpoint && window.innerWidth < this.breakpoint) {
-            $(".indexButton i").addClass("fa-book").removeClass("fa-times");
+            $(".indexButton i").text("list");
             document.getElementById("navbar-collapse").classList.remove("show");
             document.getElementById("content").style.minHeight = this.minHeight;
         }
         if (this.width < this.breakpoint && window.innerWidth > this.breakpoint) {
-            $(".indexButton i").addClass("fa-times").removeClass("fa-book");
+            $(".indexButton i").text("clear");
             document.getElementById("content").classList.remove("col-md-12");
             document.getElementById("content").style.minHeight = "0px";
         }
@@ -65,7 +67,9 @@ let display = new Display(breakpoint);
 window.onresize = () => display.onResize();
 
 document.getElementById("indexButton").onclick = function () {
-    $(".indexButton i").toggleClass("fa-book fa-times");
+    let buttonText = $(".indexButton i").text();
+    buttonText === "list" ? buttonText = "clear" : buttonText = "list";
+    $(".indexButton i").text(buttonText);
     if (window.innerWidth > breakpoint) {
         $(".index-container").toggleClass("hidden");
         $(".content").toggleClass("col-md-12")
