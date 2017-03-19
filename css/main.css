@@ -147,7 +147,10 @@ aside ul {
     }
 
     .index-container{
-        margin-bottom: 20px;
         padding: 0;
+    }
+
+    .content{
+        padding-top: 20px;
     }
 }
