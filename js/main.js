@@ -67,7 +67,7 @@ window.onresize = () => display.onResize();
 document.getElementById("indexButton").onclick = function () {
     $(".indexButton i").toggleClass("fa-book fa-times");
     if (window.innerWidth > breakpoint) {
-        $("aside").toggleClass("hidden");
+        $(".index-container").toggleClass("hidden");
         $(".content").toggleClass("col-md-12")
     } else {
         $("aside").collapse("toggle");
