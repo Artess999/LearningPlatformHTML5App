@@ -137,6 +137,7 @@ aside ul {
     background-color: transparent;
     color: white;
     box-shadow: none;
+    padding: .25rem .75rem;
 }
 
 @media screen and (max-width: 767px) {
