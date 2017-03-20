@@ -3,7 +3,7 @@
  */
 const breakpoint = 767;
 const indexAnimationTime = 350;
-const contentAnimationTime = 500;
+const contentAnimationTime = 350;
 
 class Display {
     constructor(breakpoint) {
