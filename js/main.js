@@ -109,6 +109,10 @@ document.getElementById("audioButton").onclick = function () {
         }
         let utterance = new SpeechSynthesisUtterance(text);
         utterance.voice = window.speechSynthesis.getVoices()[0];
+        utterance.pitch = 1;
+        utterance.rate = 1;
+        utterance.volume = 1;
+        console.log(utterance);
         window.speechSynthesis.speak(utterance);
         utterance.onend = () => $(".audioButton i").text("headset");
     }
