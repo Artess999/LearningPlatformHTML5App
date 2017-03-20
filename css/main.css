@@ -94,7 +94,7 @@ aside ul {
     font-size: 52px;
 }
 
-header button{
+#header button{
     box-sizing: content-box;
     height: 32px;
     outline: none;
