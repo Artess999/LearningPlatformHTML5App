@@ -2,6 +2,8 @@
  * Created by Artem on 08.02.2017.
  */
 const breakpoint = 767;
+const indexAnimationTime = 350;
+const contentAnimationTime = 350;
 
 class Display {
     constructor(breakpoint) {
@@ -12,7 +14,7 @@ class Display {
         this.correctStyle();
     }
 
-    setCurrentSizes(){
+    setCurrentSizes() {
         this.headerHeigth = $("header").outerHeight(true);
         this.footerHeight = $("footer").outerHeight(true);
         this.mainHeight = window.innerHeight - (this.headerHeigth + this.footerHeight);
@@ -35,15 +37,16 @@ class Display {
         if (this.width > this.breakpoint) {
             document.getElementById("index").style.height = this.mainHeight + "px";
             document.getElementById("content").style.height = this.mainHeight + "px";
+            document.getElementById("index-list").style.height = this.mainHeight + "px";
 
-            document.getElementById("index").classList.remove("collapse");
+            document.getElementById("index").classList.add("show");
         }
         else {
             document.getElementsByTagName("footer")[0].style.position = "static";
             document.getElementById("content").style.height = this.mainHeight + "px";
 
             document.getElementById("index-container").classList.remove("hidden");
-            document.getElementById("index").classList.add("collapse");
+            document.getElementById("index").classList.remove("show");
         }
     }
 
@@ -66,17 +69,32 @@ class Display {
 let display = new Display(breakpoint);
 window.onresize = () => display.onResize();
 
-document.getElementById("indexButton").onclick = function () {
+document.getElementById("indexButton").onclick = indexOnClick;
+
+function indexOnClick() {
     let buttonText = $(".indexButton i").text();
     buttonText === "list" ? buttonText = "clear" : buttonText = "list";
     $(".indexButton i").text(buttonText);
     if (window.innerWidth > breakpoint) {
-        $(".index-container").toggleClass("hidden");
-        $(".content").toggleClass("col-md-12")
+        //$(".index-container").toggleClass("hidden");
+        if ($("aside").hasClass("show")) {
+            $("aside").collapse("hide");
+            setTimeout(() => {
+                $("#index-container").hide();
+                $(".content").addClass("col-md-12");
+            }, indexAnimationTime)
+
+        } else {
+            $(".content").removeClass("col-md-12");
+            setTimeout(() => {
+                $("#index-container").show();
+                $("aside").collapse("show");
+            }, contentAnimationTime)
+        }
     } else {
         $("aside").collapse("toggle");
     }
-};
+}
 
 
 $(".next").click(function () {
