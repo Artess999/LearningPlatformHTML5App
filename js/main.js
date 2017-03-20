@@ -1,5 +1,5 @@
 /**
- * Created by Artem on 08.02.2017.
+ * Created by Artem on 08.02.2017. g
  */
 const breakpoint = 767;
 
