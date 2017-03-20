@@ -109,6 +109,16 @@ aside ul {
     justify-content: flex-end;
 }
 
+.card-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 52px;
+}
+.card-header .lead{
+    margin: 0;
+}
+
 @media screen and (max-width: 767px) {
     #header {
         flex-direction: column;
