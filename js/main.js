@@ -98,21 +98,21 @@ function indexOnClick() {
 
 document.getElementById("audioButton").onclick = function () {
     if (!window.speechSynthesis.speaking) {
-        $(".audioButton i").text("clear");
+        $(".audioButton i").text("stop");
         let textSynthesis = window.getSelection() + "";
         if (textSynthesis === "") {
             textSynthesis = document.getElementsByClassName("currentPageText")[0].textContent;
         }
-        if (window.innerWidth < breakpoint) {
-            if (textSynthesis.length > 2000) {
-                while (textSynthesis.length > 2000) {
-                    let textSynthesisPart = textSynthesis.substring(0, 2000);
-                    textSynthesis = textSynthesis.slice(2000);
+        //if (window.innerWidth < breakpoint) {
+            if (textSynthesis.length > 500) {
+                while (textSynthesis.length > 500) {
+                    let textSynthesisPart = textSynthesis.substring(0, 500);
+                    textSynthesis = textSynthesis.slice(500);
                     let utterance = new SpeechSynthesisUtterance(textSynthesisPart);
                     window.speechSynthesis.speak(utterance);
                 }
             }
-        }
+        //}
         let utterance = new SpeechSynthesisUtterance(textSynthesis);
         window.speechSynthesis.speak(utterance);
 
