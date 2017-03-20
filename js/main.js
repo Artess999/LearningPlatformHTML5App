@@ -96,6 +96,23 @@ function indexOnClick() {
     }
 }
 
+document.getElementById("audioButton").onclick = function () {
+
+    if (window.speechSynthesis.speaking) {
+        $(".audioButton i").text("headset");
+        window.speechSynthesis.cancel();
+    } else {
+        $(".audioButton i").text("clear");
+        let text = window.getSelection().toString();
+        if (text === "") {
+            text = $(".currentPageText").text();
+        }
+        let utterance = new SpeechSynthesisUtterance(text);
+        window.speechSynthesis.speak(utterance);
+        utterance.onend = () => $(".audioButton i").text("headset");
+    }
+};
+
 
 $(".next").click(function () {
     $.getJSON("http://localhost:63342/LearningPlatformHTML5App/JSONProvider.php?id=2",
@@ -135,3 +152,4 @@ BuildList(elems);
 $("ul li").click(function (e) {
     e.stopPropagation();
 });
+

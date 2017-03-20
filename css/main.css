@@ -78,6 +78,7 @@ aside ul {
 }
 .currentPageText {
     overflow: auto;
+    text-align: justify;
 }
 
 .material-icons{
@@ -117,6 +118,10 @@ aside ul {
 }
 .card-header .lead{
     margin: 0;
+}
+
+.nav li, button{
+    cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {
