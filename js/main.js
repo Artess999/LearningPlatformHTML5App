@@ -97,35 +97,30 @@ function indexOnClick() {
 }
 
 document.getElementById("audioButton").onclick = function () {
-    try {
-        if (!window.speechSynthesis.speaking) {
-            $(".audioButton i").text("clear");
-            let textSynthesis = window.getSelection() + "";
-            if (textSynthesis === "") {
-                textSynthesis = document.getElementsByClassName("currentPageText")[0].textContent;
-            }
-            if (window.innerWidth < breakpoint) {
-                if (textSynthesis.length > 2000) {
-                    while (textSynthesis.length > 2000) {
-                        let textSynthesisPart = textSynthesis.substring(0, 2000);
-                        textSynthesis = textSynthesis.slice(2000);
-                        let utterance = new SpeechSynthesisUtterance(textSynthesisPart);
-                        window.speechSynthesis.speak(utterance);
-                    }
+    if (!window.speechSynthesis.speaking) {
+        $(".audioButton i").text("clear");
+        let textSynthesis = window.getSelection() + "";
+        if (textSynthesis === "") {
+            textSynthesis = document.getElementsByClassName("currentPageText")[0].textContent;
+        }
+        if (window.innerWidth < breakpoint) {
+            if (textSynthesis.length > 2000) {
+                while (textSynthesis.length > 2000) {
+                    let textSynthesisPart = textSynthesis.substring(0, 2000);
+                    textSynthesis = textSynthesis.slice(2000);
+                    let utterance = new SpeechSynthesisUtterance(textSynthesisPart);
+                    window.speechSynthesis.speak(utterance);
                 }
             }
-            let utterance = new SpeechSynthesisUtterance(textSynthesis);
-            window.speechSynthesis.speak(utterance);
-
-            utterance.onend = () => $(".audioButton i").text("headset");
-
-        } else {
-            $(".audioButton i").text("headset");
-            window.speechSynthesis.cancel();
         }
-    }
-    catch (error) {
-        alert(error);
+        let utterance = new SpeechSynthesisUtterance(textSynthesis);
+        window.speechSynthesis.speak(utterance);
+
+        utterance.onend = () => $(".audioButton i").text("headset");
+
+    } else {
+        $(".audioButton i").text("headset");
+        window.speechSynthesis.cancel();
     }
 };
 
