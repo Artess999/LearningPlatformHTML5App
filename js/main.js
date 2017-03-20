@@ -108,6 +108,7 @@ document.getElementById("audioButton").onclick = function () {
             text = $(".currentPageText").text();
         }
         let utterance = new SpeechSynthesisUtterance(text);
+        utterance.voice = window.speechSynthesis.getVoices()[0];
         window.speechSynthesis.speak(utterance);
         utterance.onend = () => $(".audioButton i").text("headset");
     }
