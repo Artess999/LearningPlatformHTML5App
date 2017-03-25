@@ -19,12 +19,14 @@ footer {
     width: 100%;
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
     margin-top: 20px;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
 }
 
 aside {
     background-color: white;
     overflow: auto;
-    box-shadow: 0 0 16px rgba(0,0,0,0.3);
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
     /*width: calc(25.5% - 40px);*/
     width: 100%;
     padding: 0 20px;
@@ -41,10 +43,12 @@ aside ul li {
     list-style: none;
     padding: 5px 0;
 }
+
 aside ul li i.material-icons {
     float: right;
     font-size: 1.5em;
 }
+
 aside ul {
     padding-left: 20px;
 }
@@ -57,12 +61,15 @@ aside ul {
 .controlfunctions {
     background-color: white;
 }
+
 .next {
     float: right;
 }
+
 .previous {
     float: left;
 }
+
 .next,
 .previous {
     color: rgba(0, 0, 0, 0.4);
@@ -70,57 +77,66 @@ aside ul {
 }
 
 .currentPage {
-    box-shadow: 0 0 16px rgba(0,0,0,0.3);
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
 }
+
 .currentPage, .currentPageContainer {
     height: 100%;
     padding: 0;
 }
+
 .currentPageText {
     overflow: auto;
     text-align: justify;
 }
 
-.material-icons{
+.material-icons {
     font-size: 32px;
 }
 
-.card{
-    border:none;
+.card {
+    border: none;
 }
-.card-header{
+
+.card-header {
     padding: 0;
 }
-.card-header .material-icons{
+
+.card-header .material-icons {
     font-size: 52px;
 }
 
-#header button{
+#header button {
     box-sizing: content-box;
     height: 32px;
     outline: none;
     border: none;
     background-color: transparent;
-    color: white;
+    color: rgba(255, 255, 255, 0.5);
     box-shadow: none;
     padding: .25rem .75rem;
 }
 
-.row{
+#header button:hover {
+    color: white;
+}
+
+.row {
     justify-content: flex-end;
 }
 
-.card-header{
+.card-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     min-height: 52px;
 }
-.card-header .lead{
+
+.card-header .lead {
     margin: 0;
 }
 
-.nav li, button{
+.nav li, button {
     cursor: pointer;
 }
 
@@ -130,11 +146,11 @@ aside ul {
         margin-bottom: 0;
     }
 
-    .index-container{
+    .index-container {
         padding: 0;
     }
 
-    .content{
+    .content {
         padding-top: 20px;
     }
 }
