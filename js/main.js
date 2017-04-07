@@ -97,9 +97,18 @@ function indexOnClick() {
 }
 
 
+let voices = speechSynthesis.getVoices(),
+            utterance = new SpeechSynthesisUtterance(" ");
+        utterance.voice = voices[0];
+        utterance.volume = 1;
+        window.speechSynthesis.speak(utterance);
+
 document.getElementById("audioButton").onclick = function () {
-    if (!window.speechSynthesis.speaking) {	
-		let voices = speechSynthesis.getVoices();	
+    if (!window.speechSynthesis.speaking) {
+        
+		let voices = speechSynthesis.getVoices(),
+            utterance;
+        
         $(".audioButton i").text("stop");
         let textSynthesis = window.getSelection() + "";
         if (textSynthesis === "") {
@@ -110,13 +119,13 @@ document.getElementById("audioButton").onclick = function () {
                 while (textSynthesis.length > 500) {
                     let textSynthesisPart = textSynthesis.substring(0, 500);
                     textSynthesis = textSynthesis.slice(500);
-                    let utterance = new SpeechSynthesisUtterance(textSynthesisPart);
+                    utterance = new SpeechSynthesisUtterance(textSynthesisPart);
 					utterance.voice = voices[0];
                     window.speechSynthesis.speak(utterance);
                 }
             }
         //}
-        let utterance = new SpeechSynthesisUtterance(textSynthesis);
+        utterance = new SpeechSynthesisUtterance(textSynthesis);
 		utterance.voice = voices[0];
         window.speechSynthesis.speak(utterance);
 
