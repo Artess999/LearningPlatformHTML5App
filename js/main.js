@@ -96,8 +96,10 @@ function indexOnClick() {
     }
 }
 
+
 document.getElementById("audioButton").onclick = function () {
-    if (!window.speechSynthesis.speaking) {
+    if (!window.speechSynthesis.speaking) {	
+		let voices = speechSynthesis.getVoices();	
         $(".audioButton i").text("stop");
         let textSynthesis = window.getSelection() + "";
         if (textSynthesis === "") {
@@ -109,11 +111,13 @@ document.getElementById("audioButton").onclick = function () {
                     let textSynthesisPart = textSynthesis.substring(0, 500);
                     textSynthesis = textSynthesis.slice(500);
                     let utterance = new SpeechSynthesisUtterance(textSynthesisPart);
+					utterance.voice = voices[0];
                     window.speechSynthesis.speak(utterance);
                 }
             }
         //}
         let utterance = new SpeechSynthesisUtterance(textSynthesis);
+		utterance.voice = voices[0];
         window.speechSynthesis.speak(utterance);
 
         utterance.onend = () => $(".audioButton i").text("headset");
@@ -123,7 +127,6 @@ document.getElementById("audioButton").onclick = function () {
         window.speechSynthesis.cancel();
     }
 };
-
 
 $(".next").click(function () {
     $.getJSON("http://localhost:63342/LearningPlatformHTML5App/JSONProvider.php?id=2",
