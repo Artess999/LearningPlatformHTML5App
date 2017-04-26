@@ -35,7 +35,7 @@ class Display {
 
     correctStyle() {
         document.getElementById("content").style.height = this.mainHeight + "px";
-        
+
         if (this.width > this.breakpoint) {
             document.getElementById("index").style.height = this.mainHeight + "px";
             document.getElementById("index-list").style.height = this.mainHeight + "px";
@@ -43,7 +43,7 @@ class Display {
         }
         else {
             document.getElementsByTagName("footer")[0].style.position = "static";
-            document.getElementById("index-container").classList.remove("hidden");
+            document.getElementById("index-container").style.display = "block";
             document.getElementById("index").classList.remove("show");
         }
     }
