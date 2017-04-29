@@ -43,50 +43,72 @@ class ThemeModal {
 
 class Styles {
     static setStandart() {
-        let headerFooterStyle = {'background-color': ''};
-        let bodyStyle = {'background-color': ''};
+        let headerFooterStyle = {'background-color': '', 'color': ''};
+        let bodyStyle = {'background-color': '', 'font-size': ''};
         let contentStyle = {
             'background-color': '',
             'color': ''
         };
+        let headerButtonsStyle = {'color': '', 'font-size': ''};
+        let leadStyle = headerButtonsStyle;
 
-        Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle);
+        Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle, headerButtonsStyle, leadStyle);
     }
 
     static setBright() {
-        let headerFooterStyle = {'background-color': 'orange'};
-        let bodyStyle = {'background-color': ''};
+        let headerFooterStyle = {'background-color': 'orange', 'color': ''};
+        let bodyStyle = {'background-color': '', 'font-size': ''};
         let contentStyle = {
             'background-color': '',
             'color': ''
         };
+        let headerButtonsStyle = {'color': '', 'font-size': ''};
+        let leadStyle = headerButtonsStyle;
 
-        Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle);
+        Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle, headerButtonsStyle, leadStyle);
     }
 
     static setDark() {
 
-        let headerFooterStyle = {'background-color': '#212121'};
-        let bodyStyle = {'background-color': '#303030'};
+        let headerFooterStyle = {'background-color': '#212121', 'color': ''};
+        let bodyStyle = {'background-color': '#303030', 'font-size': ''};
         let contentStyle = {
             'background-color': '#424242',
             'color': 'white'
         };
+        let headerButtonsStyle = {'color': '', 'font-size': ''};
+        let leadStyle = headerButtonsStyle;
 
-        Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle);
+        Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle, headerButtonsStyle, leadStyle);
     }
 
     static setLight() {
-        $('header').css('background-color', '#EEEEEE');
-        $('footer').css('background-color', '#EEEEEE');
+        let headerFooterStyle = {'background-color': '#c2c2c2', 'color': 'black'};
+        let bodyStyle = {'background-color': '#f5f5f5', 'font-size': ''};
+        let contentStyle = {
+            'background-color': '',
+            'color': ''
+        };
+        let headerButtonsStyle = {'color': 'rgba(0,0,0,0.8)'};
+        let leadStyle = {'color': 'black', 'font-size': ''};
+
+        Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle, headerButtonsStyle, leadStyle);
     }
 
     static setWeakSighted() {
-        $('header').css('background-color', '#2196F3');
-        $('footer').css('background-color', '#2196F3');
+        let headerFooterStyle = {'background-color': 'white', 'color': 'black'};
+        let bodyStyle = {'background-color': 'white', 'font-size': '30px'};
+        let contentStyle = {
+            'background-color': '',
+            'color': ''
+        };
+        let headerButtonsStyle = {'color': 'black'};
+        let leadStyle = {'color': 'black', 'font-size': '30px'};
+
+        Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle, headerButtonsStyle, leadStyle);
     }
 
-    static applyStyle(headerFooterStyle, bodyStyle, contentStyle) {
+    static applyStyle(headerFooterStyle, bodyStyle, contentStyle, headerButtonsStyle, leadStyle) {
         $('header').css(headerFooterStyle);
         $('footer').css(headerFooterStyle);
         $('body').css(bodyStyle);
@@ -94,6 +116,11 @@ class Styles {
         $('.card-header').filter('.controlfunctions').css(contentStyle);
         $('.card-header').find('i').css(contentStyle);
         $('.currentPage').css(contentStyle);
+        $('header').find('button').css(headerButtonsStyle);
+        $('.lead').css(leadStyle);
+
+        display.setCurrentSizes();
+        display.correctStyle();
     }
 
 }
