@@ -18,11 +18,9 @@ class ThemeModal {
                 </button>
             </div>
             <div class="modal-body">
+                <div class="themes-container">
                 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отменить</button>
-                <button type="button" class="btn btn-primary">Сохранить</button>
+                </div>            
             </div>
         </div>
     </div>
@@ -31,24 +29,78 @@ class ThemeModal {
         $('.navbar-collapse').append(themeButton);
         $('body').append(themeModal);
 
-        this.modalBody = $('.theme-modal').find('.modal-body');
+        this.themesContainer = $('.theme-modal').find('.themes-container');
     }
 
-    createButton(classname, text, handler){
-        let button = $(`<button class="${classname}">${text}</button>`);
+    createButton(classname, text, handler, message) {
+
+        let button = $(`<button class="button-theme ${classname}">${text}</button>`);
+
         button.on('click', handler);
-        $(this.modalBody).append(button);
+        $(this.themesContainer).append(button);
     }
 }
 
 class Styles {
+    static setStandart() {
+        let headerFooterStyle = {'background-color': ''};
+        let bodyStyle = {'background-color': ''};
+        let contentStyle = {
+            'background-color': '',
+            'color': ''
+        };
 
-    static setOrangeStyle(){
-        $('header').css('background-color', 'orange');
-        $('footer').css('background-color', 'orange');
+        Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle);
+    }
+
+    static setBright() {
+        let headerFooterStyle = {'background-color': 'orange'};
+        let bodyStyle = {'background-color': ''};
+        let contentStyle = {
+            'background-color': '',
+            'color': ''
+        };
+
+        Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle);
+    }
+
+    static setDark() {
+
+        let headerFooterStyle = {'background-color': '#212121'};
+        let bodyStyle = {'background-color': '#303030'};
+        let contentStyle = {
+            'background-color': '#424242',
+            'color': 'white'
+        };
+
+        Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle);
+    }
+
+    static setLight() {
+        $('header').css('background-color', '#EEEEEE');
+        $('footer').css('background-color', '#EEEEEE');
+    }
+
+    static setWeakSighted() {
+        $('header').css('background-color', '#2196F3');
+        $('footer').css('background-color', '#2196F3');
+    }
+
+    static applyStyle(headerFooterStyle, bodyStyle, contentStyle) {
+        $('header').css(headerFooterStyle);
+        $('footer').css(headerFooterStyle);
+        $('body').css(bodyStyle);
+        $('#index').css(contentStyle);
+        $('.card-header').filter('.controlfunctions').css(contentStyle);
+        $('.card-header').find('i').css(contentStyle);
+        $('.currentPage').css(contentStyle);
     }
 
 }
 
 let themeChooser = new ThemeModal();
-themeChooser.createButton('orange', 'оранж', Styles.setOrangeStyle);
+themeChooser.createButton('standart', '', Styles.setStandart);
+themeChooser.createButton('bright', '', Styles.setBright);
+themeChooser.createButton('dark', '', Styles.setDark);
+themeChooser.createButton('light', '', Styles.setLight);
+themeChooser.createButton('weak-sighted', '<i class="material-icons">visibility</i>', Styles.setWeakSighted);
