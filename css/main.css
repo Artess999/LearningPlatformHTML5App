@@ -20,7 +20,7 @@ footer {
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
     margin-top: 20px;
     color: rgba(255, 255, 255, 0.75);
-    text-align: center;
+    text-align: right;
 }
 
 aside {
@@ -140,6 +140,35 @@ aside ul {
     cursor: pointer;
 }
 
+.btn-twitter, .btn-facebook, .btn-vk {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    vertical-align: middle;
+    box-sizing: content-box;
+}
+
+.btn-twitter {
+    background: url("http://www.pngall.com/wp-content/uploads/2016/07/Twitter-PNG-Picture.png");
+    background-size: contain;
+}
+
+.btn-facebook {
+    background: url("http://www.pngall.com/wp-content/uploads/2016/07/Facebook-Transparent.png");
+    background-size: contain;
+}
+
+.btn-vk {
+    background: url("https://avatanplus.com/files/resources/mid/586896f72921c159588db580.png");
+    background-size: contain;
+}
+
+footer .info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 @media screen and (max-width: 767px) {
     #header {
         flex-direction: column;
@@ -152,5 +181,19 @@ aside ul {
 
     .content {
         padding-top: 20px;
+    }
+
+    footer .info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    footer .social-buttons{
+        padding-top: 10px;
+    }
+
+    footer{
+        text-align: center;
     }
 }
