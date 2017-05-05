@@ -140,27 +140,16 @@ aside ul {
     cursor: pointer;
 }
 
-.btn-twitter, .btn-facebook, .btn-vk {
+.social-button {
     display: inline-block;
-    width: 36px;
-    height: 36px;
-    vertical-align: middle;
-    box-sizing: content-box;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 10px 5px 0 5px;
 }
 
-.btn-twitter {
-    background: url("http://www.pngall.com/wp-content/uploads/2016/07/Twitter-PNG-Picture.png");
-    background-size: contain;
-}
-
-.btn-facebook {
-    background: url("http://www.pngall.com/wp-content/uploads/2016/07/Facebook-Transparent.png");
-    background-size: contain;
-}
-
-.btn-vk {
-    background: url("https://avatanplus.com/files/resources/mid/586896f72921c159588db580.png");
-    background-size: contain;
+.social-button:hover {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
 }
 
 footer .info {
@@ -189,11 +178,7 @@ footer .info {
         align-items: center;
     }
 
-    footer .social-buttons{
-        padding-top: 10px;
-    }
-
-    footer{
+    footer {
         text-align: center;
     }
 }

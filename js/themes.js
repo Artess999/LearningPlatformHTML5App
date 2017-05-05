@@ -89,7 +89,7 @@ class Styles {
             'background-color': '',
             'color': ''
         };
-        let headerButtonsStyle = {'color': 'rgba(0,0,0,0.8)'};
+        let headerButtonsStyle = {'color': 'rgba(0,0,0,0.8)', 'font-size': ''};
         let leadStyle = {'color': 'black', 'font-size': ''};
 
         Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle, headerButtonsStyle, leadStyle);
@@ -102,7 +102,7 @@ class Styles {
             'background-color': '',
             'color': ''
         };
-        let headerButtonsStyle = {'color': 'black'};
+        let headerButtonsStyle = {'color': 'black', 'font-size': '40px'};
         let leadStyle = {'color': 'black', 'font-size': '30px'};
 
         Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle, headerButtonsStyle, leadStyle);
@@ -117,6 +117,9 @@ class Styles {
         $('.card-header').find('i').css(contentStyle);
         $('.currentPage').css(contentStyle);
         $('header').find('button').css(headerButtonsStyle);
+
+        $('.social-button').css(headerButtonsStyle);
+
         $('.lead').css(leadStyle);
 
         display.setCurrentSizes();
