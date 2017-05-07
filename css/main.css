@@ -140,16 +140,22 @@ aside ul {
     cursor: pointer;
 }
 
-.social-button {
-    display: inline-block;
+footer .container .row .social-button {
+    display: inline-block !important;
     font-size: 24px;
     color: rgba(255, 255, 255, 0.5);
     padding: 10px 5px 0 5px;
 }
 
-.social-button:hover {
+
+footer .container .row .social-button:hover {
     text-decoration: none;
     color: rgba(255, 255, 255, 1);
+}
+
+footer .container .row .social-button:focus {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 footer .info {

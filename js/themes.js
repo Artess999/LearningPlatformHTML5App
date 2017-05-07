@@ -43,7 +43,7 @@ class ThemeModal {
 
 class Styles {
     static setStandart() {
-        let headerFooterStyle = {'background-color': '', 'color': ''};
+        let headerFooterStyle = {'background-color': '', 'color': 'white'};
         let bodyStyle = {'background-color': '', 'font-size': ''};
         let contentStyle = {
             'background-color': '',
@@ -56,7 +56,7 @@ class Styles {
     }
 
     static setBright() {
-        let headerFooterStyle = {'background-color': 'orange', 'color': ''};
+        let headerFooterStyle = {'background-color': 'orange', 'color': 'white'};
         let bodyStyle = {'background-color': '', 'font-size': ''};
         let contentStyle = {
             'background-color': '',
@@ -70,7 +70,7 @@ class Styles {
 
     static setDark() {
 
-        let headerFooterStyle = {'background-color': '#212121', 'color': ''};
+        let headerFooterStyle = {'background-color': '#212121', 'color': 'white'};
         let bodyStyle = {'background-color': '#303030', 'font-size': ''};
         let contentStyle = {
             'background-color': '#424242',
@@ -121,6 +121,11 @@ class Styles {
         $('.social-button').css(headerButtonsStyle);
 
         $('.lead').css(leadStyle);
+
+        let cheatModalContent = $('.cheat-modal').find('.modal-content');
+        cheatModalContent.css(headerFooterStyle);
+        cheatModalContent.find('textarea').css(contentStyle);
+        cheatModalContent.find('button').css(contentStyle);
 
         display.setCurrentSizes();
         display.correctStyle();
