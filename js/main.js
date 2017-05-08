@@ -95,46 +95,6 @@ function indexOnClick() {
 }
 
 
-let voices = speechSynthesis.getVoices(),
-            utterance = new SpeechSynthesisUtterance(" ");
-        utterance.voice = voices[0];
-        utterance.volume = 1;
-        window.speechSynthesis.speak(utterance);
-
-document.getElementById("audioButton").onclick = function () {
-    if (!window.speechSynthesis.speaking) {
-        
-		let voices = speechSynthesis.getVoices(),
-            utterance;
-        
-        $(".audioButton i").text("stop");
-        let textSynthesis = window.getSelection() + "";
-        if (textSynthesis === "") {
-            textSynthesis = document.getElementsByClassName("currentPageText")[0].textContent;
-        }
-        //if (window.innerWidth < breakpoint) {
-            if (textSynthesis.length > 500) {
-                while (textSynthesis.length > 500) {
-                    let textSynthesisPart = textSynthesis.substring(0, 500);
-                    textSynthesis = textSynthesis.slice(500);
-                    utterance = new SpeechSynthesisUtterance(textSynthesisPart);
-					utterance.voice = voices[0];
-                    window.speechSynthesis.speak(utterance);
-                }
-            }
-        //}
-        utterance = new SpeechSynthesisUtterance(textSynthesis);
-		utterance.voice = voices[0];
-        window.speechSynthesis.speak(utterance);
-
-        utterance.onend = () => $(".audioButton i").text("headset");
-
-    } else {
-        $(".audioButton i").text("headset");
-        window.speechSynthesis.cancel();
-    }
-};
-
 $(".next").click(function () {
     $.getJSON("http://localhost:63342/LearningPlatformHTML5App/JSONProvider.php?id=2",
         function (data) {
