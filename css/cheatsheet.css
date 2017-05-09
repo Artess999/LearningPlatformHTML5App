@@ -10,6 +10,9 @@
     height: calc(100% - 30px);
     width: calc(100% - 30px);
     resize: none;
+    position: absolute;
+    top: 15px;
+    bottom: 15px;
 }
 
 .cheat-container {
