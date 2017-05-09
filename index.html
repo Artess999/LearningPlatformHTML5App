@@ -19,7 +19,12 @@
     <div class="alert">ВКЛЮЧИТЕ JS!!!</div>
 </noscript>
 
-<script>var body = `<header class="navbar navbar-light navbar-toggleable-sm" id="header">
+<script>
+    var loader = `<div class="loader"></div>`;
+    document.body.innerHTML = loader;
+</script>
+
+<script>var body = `<learning-app class="load"><header class="navbar navbar-light navbar-toggleable-sm" id="header">
     <h1 class="navbar-brand lead title" id="title">Учебное пособие</h1>
     <button type="button" class="navbar-toggler navbar-toggler-left" data-toggle="collapse"
             data-target=".navbar-collapse"><i class="material-icons">menu</i></button>
@@ -124,7 +129,7 @@
             <div class="col-md-8 info">Artem © 2017. All Rights Reversed</div>
         </div>
     </div>
-</footer>`;
+</footer></learning-app>`;
 
 document.body.innerHTML = body;
 </script>
@@ -137,6 +142,11 @@ document.body.innerHTML = body;
 <script src="js/themes.js"></script>
 <script src="js/cheatsheet.js"></script>
 <script src="js/social.js"></script>
+
+<script>
+    $(".loader").hide();
+    $("learning-app").removeClass("load");
+</script>
 
 </body>
 

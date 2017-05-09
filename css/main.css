@@ -4,6 +4,35 @@
     text-align: center;
 }
 
+learning-app.load::after{
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;
+    position: absolute;
+    top: 0;
+    display: block;
+    content: " ";
+}
+
+.loader {
+    border: 16px solid white;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+
+    position: absolute;
+    z-index: 654;
+    top: calc(50vh - 60px);
+    left: calc(50vw - 60px);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 #header {
     flex-direction: row-reverse;
     background-color: #2196F3;
