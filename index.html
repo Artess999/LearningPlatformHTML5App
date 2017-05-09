@@ -11,10 +11,15 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/themes.css">
     <link rel="stylesheet" href="css/cheatsheet.css">
+
 </head>
 
 <body class="bg-faded" id="body">
-<header class="navbar navbar-light navbar-toggleable-sm" id="header">
+<noscript>
+    <div class="alert">ВКЛЮЧИТЕ JS!!!</div>
+</noscript>
+
+<script>var body = `<header class="navbar navbar-light navbar-toggleable-sm" id="header">
     <h1 class="navbar-brand lead title" id="title">Учебное пособие</h1>
     <button type="button" class="navbar-toggler navbar-toggler-left" data-toggle="collapse"
             data-target=".navbar-collapse"><i class="material-icons">menu</i></button>
@@ -117,20 +122,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 info">Artem © 2017. All Rights Reversed</div>
-            <div class="col-md-4">
-                <a href="https://vk.com/share.php?url=http://obuchaushaiaplatforma.com&title=Я пользуюсь Учеьной Платформой!!!!" target="_blank"
-                   class="socicon-vkontakte social-button">
-                </a>
-                <a href="http://twitter.com/intent/tweet?text=Я пользуюсь Учеьной Платформой!!!!" target="_blank"
-                   class="socicon-twitter social-button">
-                </a>
-                <a href="http://www.facebook.com/sharer.php?s=100" target="_blank" class="socicon-facebook social-button">
-                </a>
-
-            </div>
         </div>
     </div>
-</footer>
+</footer>`;
+
+document.body.innerHTML = body;
+</script>
+<script src="js/browser_checker.js"></script>
 
 <script src="js/jquery-3.1.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -138,6 +136,8 @@
 <script src="js/audio.js"></script>
 <script src="js/themes.js"></script>
 <script src="js/cheatsheet.js"></script>
+<script src="js/social.js"></script>
+
 </body>
 
 </html>
