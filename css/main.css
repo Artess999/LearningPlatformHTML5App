@@ -14,7 +14,7 @@ learning-app.load::after{
     content: " ";
 }
 
-.loader {
+.initial-loader {
     border: 16px solid white;
     border-top: 16px solid #3498db;
     border-radius: 50%;
