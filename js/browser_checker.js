@@ -24,9 +24,9 @@ class InitialChecks {
     }
 
 
-    setBrowser(){
+    setBrowser() {
         let nav = this.nav;
-        switch (true){
+        switch (true) {
             case nav.indexOf("opr") > -1:
                 this.browser = "opr";
                 break;
@@ -45,12 +45,12 @@ class InitialChecks {
         }
     }
 
-    setVersion(){
+    setVersion() {
         let nav = this.nav;
         let namePos = -1;
         let version = "";
 
-        switch (this.browser){
+        switch (this.browser) {
             case "opr":
                 this.version = ver("opr");
                 break;
@@ -71,18 +71,18 @@ class InitialChecks {
         function ver(browserName) {
             namePos = nav.indexOf(browserName);
             version = nav.slice(nav.indexOf("/", namePos) + 1, nav.indexOf(" ", namePos));
-            if (version.indexOf(".") > -1){
+            if (version.indexOf(".") > -1) {
                 version = version.slice(0, version.indexOf("."));
             }
             return +version;
         }
     }
 
-    checkRequirements(browser, version){
-        if (version < this.requirements[browser]){
+    checkRequirements(browser, version) {
+        if (version < this.requirements[browser]) {
             alert("версия");
         }
-        if (browser === "other"){
+        if (browser === "other") {
             alert("неизвестный браузер");
         }
     }
