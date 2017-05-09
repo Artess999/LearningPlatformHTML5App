@@ -70,13 +70,22 @@ window.onresize = () => display.onResize();
 document.getElementById("indexButton").onclick = indexOnClick;
 
 function indexOnClick() {
-    let buttonText = $(".indexButton i").text();
+    let buttonText = $(".indexButton").find("i").text();
     buttonText === "list" ? buttonText = "clear" : buttonText = "list";
-    $(".indexButton i").text(buttonText);
+    $(".indexButton").find("i").text(buttonText);
     if (window.innerWidth > breakpoint) {
         //$(".index-container").toggleClass("hidden");
-        if ($("aside").hasClass("show")) {
-            $("aside").collapse("hide");
+        //первый if - обработка бага с изменением темы
+        if ($("#index").hasClass("show") && $(".content").hasClass("col-md-12")) {
+            $(".content").removeClass("col-md-12");
+            $("#index").removeClass('show');
+            setTimeout(() => {
+                $("#index-container").show();
+                $("#index").collapse("show");
+            }, contentAnimationTime)
+
+        } else if ($("#index").hasClass("show")) {
+            $("#index").collapse("hide");
             setTimeout(() => {
                 $("#index-container").hide();
                 $(".content").addClass("col-md-12");
@@ -86,7 +95,7 @@ function indexOnClick() {
             $(".content").removeClass("col-md-12");
             setTimeout(() => {
                 $("#index-container").show();
-                $("aside").collapse("show");
+                $("#index").collapse("show");
             }, contentAnimationTime)
         }
     } else {
