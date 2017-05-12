@@ -15,7 +15,18 @@ class Server {
             dataType: "json",
             success: function (res) {
                 console.log(res);
-                //decodeURIComponent
+                if (res.code === 200){
+                    res.response.forEach(function (param) {
+                        switch (param.name){
+                            case 'title':
+                                $('#title').html(param.value);
+                                break;
+                            case 'copyright':
+                                $('#copyright').html(param.value);
+                                break;
+                        }
+                    })
+                }
             },
             error: function (xmlhttprequest, textstatus, message) {
                 console.log(xmlhttprequest, textstatus, message);
