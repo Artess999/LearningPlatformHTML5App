@@ -30,6 +30,9 @@ class InitialChecks {
             case nav.indexOf("opr") > -1:
                 this.browser = "opr";
                 break;
+            case nav.indexOf("edge") > -1:
+                this.browser = "other";
+                break;
             case nav.indexOf("chrome") > -1:
                 this.browser = "chrome";
                 break;
