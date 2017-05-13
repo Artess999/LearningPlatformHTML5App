@@ -30,6 +30,24 @@ class ThemeModal {
         $('body').append(themeModal);
 
         this.themesContainer = $('.theme-modal').find('.themes-container');
+
+        switch (localStorage.style){
+            case 'standart':
+                Styles.setStandart();
+                break;
+            case 'bright':
+                Styles.setBright();
+                break;
+            case 'dark':
+                Styles.setDark();
+                break;
+            case 'light':
+                Styles.setLight();
+                break;
+            case 'weaksight':
+                Styles.setWeakSighted();
+                break;
+        }
     }
 
     createButton(classname, text, handler, message) {
@@ -53,6 +71,7 @@ class Styles {
         let leadStyle = headerButtonsStyle;
 
         Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle, headerButtonsStyle, leadStyle);
+        localStorage.style = 'standart';
     }
 
     static setBright() {
@@ -66,6 +85,7 @@ class Styles {
         let leadStyle = headerButtonsStyle;
 
         Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle, headerButtonsStyle, leadStyle);
+        localStorage.style = 'bright';
     }
 
     static setDark() {
@@ -80,6 +100,7 @@ class Styles {
         let leadStyle = headerButtonsStyle;
 
         Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle, headerButtonsStyle, leadStyle);
+        localStorage.style = 'dark';
     }
 
     static setLight() {
@@ -93,6 +114,7 @@ class Styles {
         let leadStyle = {'color': 'black', 'font-size': ''};
 
         Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle, headerButtonsStyle, leadStyle);
+        localStorage.style = 'light';
     }
 
     static setWeakSighted() {
@@ -106,6 +128,7 @@ class Styles {
         let leadStyle = {'color': 'black', 'font-size': '30px'};
 
         Styles.applyStyle(headerFooterStyle, bodyStyle, contentStyle, headerButtonsStyle, leadStyle);
+        localStorage.style = 'weaksight';
     }
 
     static applyStyle(headerFooterStyle, bodyStyle, contentStyle, headerButtonsStyle, leadStyle) {
@@ -123,7 +146,7 @@ class Styles {
         $('.lead').css(leadStyle);
 
         let cheatModalContent = $('.cheat-modal').find('.modal-content');
-        cheatModalContent.css(headerFooterStyle);
+        cheatModalContent.css(contentStyle);
         cheatModalContent.find('textarea').css(contentStyle);
         cheatModalContent.find('button').css(contentStyle);
 

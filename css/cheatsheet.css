@@ -1,3 +1,11 @@
+.cheatButton{
+    order: 3;
+}
+
+.cheatAddButton{
+    order: 4;
+}
+
 .cheat-modal .modal-content {
     height: 90vh;
 }

@@ -46,6 +46,10 @@ learning-app.load::after{
     width: auto;
 }
 
+#audioButton{
+    order: 1;
+}
+
 #title {
     text-align: right;
     color: white;
