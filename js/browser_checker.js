@@ -69,10 +69,14 @@ class InitialChecks {
         }
 
         function ver(browserName) {
-            namePos = nav.indexOf(browserName);
-            version = nav.slice(nav.indexOf(browserName + "/", namePos) + 1, nav.indexOf(" ", namePos));
-            if (version.indexOf(".") > -1) {
-                version = version.slice(0, version.indexOf("."));
+            namePos = nav.indexOf(browserName + "/");
+            if (namePos !== -1) {
+                version = nav.slice(nav.indexOf("/", namePos) + 1, nav.indexOf(" ", namePos));
+                if (version.indexOf(".") > -1) {
+                    version = version.slice(0, version.indexOf("."));
+                }
+            } else {
+                version = "NaN";
             }
             return +version;
         }
