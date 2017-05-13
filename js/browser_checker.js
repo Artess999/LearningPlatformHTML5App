@@ -70,7 +70,7 @@ class InitialChecks {
 
         function ver(browserName) {
             namePos = nav.indexOf(browserName);
-            version = nav.slice(nav.indexOf("/", namePos) + 1, nav.indexOf(" ", namePos));
+            version = nav.slice(nav.indexOf(browserName + "/", namePos) + 1, nav.indexOf(" ", namePos));
             if (version.indexOf(".") > -1) {
                 version = version.slice(0, version.indexOf("."));
             }
@@ -79,11 +79,14 @@ class InitialChecks {
     }
 
     checkRequirements(browser, version) {
+        if (isNaN(version)){
+            browser = "other";
+        }
         if (version < this.requirements[browser]) {
-            alert("версия");
+            alert(`Версия вашего браузера не поддерживается. Для корректной работы системы используйте версию браузера начиная с ${this.requirements[browser]}`);
         }
         if (browser === "other") {
-            alert("неизвестный браузер");
+            alert("Ваш браузер не поддерживается. Для корректной работы системы используйте Chrome, Opera, Firefox или Safari.");
         }
     }
 }
