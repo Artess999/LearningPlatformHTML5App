@@ -4,11 +4,12 @@
 
 class Social {
     constructor() {
+        let url = window.location;
         let social = `<div class="col-md-4 socicons">
-                <a href="https://vk.com/share.php?url=http://obuchaushaiaplatforma.com&title=Я пользуюсь Учебной Платформой!!!!" target="_blank"
+                <a href="https://vk.com/share.php?url=${url}&title=Я пользуюсь Учебной Платформой!!!!" target="_blank"
                    class="socicon-vkontakte social-button">
                 </a>
-                <a href="http://twitter.com/intent/tweet?text=Я пользуюсь Учебной Платформой!!!!" target="_blank"
+                <a href="http://twitter.com/intent/tweet?text=Я пользуюсь Учебной Платформой!!!! ${url}" target="_blank"
                    class="socicon-twitter social-button">
                 </a>
                 <a href="http://www.facebook.com/sharer.php?s=100" target="_blank" class="socicon-facebook social-button">
