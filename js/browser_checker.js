@@ -90,7 +90,7 @@ class InitialChecks {
             browser = "other";
         }
         if (version < this.requirements[browser]) {
-            alert(`Версия вашего браузера не поддерживается. Для корректной работы системы используйте версию браузера начиная с ${this.requirements[browser]}`);
+            alert(`Версия вашего браузера не поддерживается. Для корректной работы системы используйте версию браузера начиная с ${this.requirements[browser]}.`);
         }
         if (browser === "other") {
             alert("Ваш браузер не поддерживается. Для корректной работы системы используйте Chrome, Opera, Firefox или Safari.");
