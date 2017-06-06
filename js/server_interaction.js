@@ -51,7 +51,7 @@ class Server {
                     res.response.forEach(page => {
                         console.log(page.id, page.title, page.content);
                         $("#currentPageTitle").text(page.title);
-                        $("#currentPageText").text(page.content);
+                        $("#currentPageText").html(page.content);
                     })
                 } else {
                     alert("Произошла ошибка! Номер ошибки: " + res.code);
