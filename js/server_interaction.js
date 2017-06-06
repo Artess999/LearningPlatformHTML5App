@@ -48,8 +48,10 @@ class Server {
             success: function (res) {
                 console.log(res);
                 if (res.code === 200) {
-                    res.response.forEach(function (page) {
+                    res.response.forEach(page => {
                         console.log(page.id, page.title, page.content);
+                        $("#currentPageTitle").text(page.title);
+                        $("#currentPageText").text(page.content);
                     })
                 } else {
                     alert("Произошла ошибка! Номер ошибки: " + res.code);
