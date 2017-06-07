@@ -44,7 +44,7 @@ class Display {
         else {
             document.getElementsByTagName("footer")[0].style.position = "static";
             document.getElementById("index-container").style.display = "block";
-            document.getElementById("index").classList.remove("show");
+            document.getElementById("index").style.height = '';
             document.getElementById("index-list").style.height = '';
         }
     }
@@ -54,6 +54,7 @@ class Display {
             $(".indexButton i").text("list");
             document.getElementById("navbar-collapse").classList.remove("show");
             document.getElementById("content").style.minHeight = this.minHeight;
+            document.getElementById("index").classList.remove("show");
         }
         if (this.width < this.breakpoint && window.innerWidth > this.breakpoint) {
             $(".indexButton i").text("clear");
