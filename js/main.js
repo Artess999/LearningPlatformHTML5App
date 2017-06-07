@@ -101,6 +101,10 @@ function indexOnClick() {
             }, contentAnimationTime)
         }
     } else {
+        try {
             $("aside").collapse("toggle");
+        }
+        catch (e) {
+        }
     }
 }
