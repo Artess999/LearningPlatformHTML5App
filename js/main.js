@@ -45,6 +45,7 @@ class Display {
             document.getElementsByTagName("footer")[0].style.position = "static";
             document.getElementById("index-container").style.display = "block";
             document.getElementById("index").classList.remove("show");
+            document.getElementById("index-list").style.height = '';
         }
     }
 
