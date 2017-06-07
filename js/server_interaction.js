@@ -78,7 +78,7 @@ class Server {
                 console.log(res);
                 if (res.code === 200) {
                     res.response.forEach(data => {
-                        let $nav = $('<ul class="nav flex-column" id="index-list"></ul>');
+                        let $nav = $('<ind></ind>');
                         let navTreeJSON = JSON.parse(data.value);
                         navTreeJSON.content.forEach(el => {
                             if (el.child.length == 0) {
@@ -94,6 +94,7 @@ class Server {
                             } else {
                                 let $el = $(`<li>${el.name}<i class="material-icons">arrow_drop_down</i><ul class="collapse"></ul></li>`);
                                 $el.click(function () {
+                                    console.log($(this));
                                     $(this).find('ul').toggleClass('collapse')
                                 });
                                 $nav.append($el);
@@ -110,7 +111,7 @@ class Server {
                                 });
                             }
                         });
-                        $('#index').html($nav);
+                        $('#index-list').html($nav);
                         $('.previous').click(()=> {
                             if (this.curPageIndex > 0) {
                                 let i = --this.curPageIndex;
