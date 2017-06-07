@@ -103,7 +103,7 @@ function indexOnClick() {
     }
 }
 
-
+/*
 $(".next").click(function () {
     $.getJSON("http://localhost:63342/LearningPlatformHTML5App/JSONProvider.php?id=2",
         function (data) {
@@ -117,6 +117,7 @@ $(".previous").click(function () {
             $(".currentPageText").text(data.text)
         })
 });
+*/
 
 let elems = document.getElementById("index-list").childNodes;
 

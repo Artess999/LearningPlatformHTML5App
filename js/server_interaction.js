@@ -8,6 +8,8 @@ class Server {
     constructor() {
         this.bookId = 1;
         this.addr = 'http://elbook.ml/api/rest/';
+        this.curPageIndex = 0;
+        this.navTree = [];
 
         this._initial();
 
@@ -77,13 +79,18 @@ class Server {
                 if (res.code === 200) {
                     res.response.forEach(data => {
                         let $nav = $('<ul class="nav flex-column" id="index-list"></ul>');
-                        let navTree = JSON.parse(data.value);
-                        navTree.content.forEach(el => {
+                        let navTreeJSON = JSON.parse(data.value);
+                        navTreeJSON.content.forEach(el => {
                             if (el.child.length == 0) {
                                 console.log(el.name, el.id);
                                 let $el = $(`<li>${el.name}</li>`);
-                                $el.click(()=> this.getPage(el.id));
+                                $el.click(()=> {
+                                        this.curPageIndex = this.navTree.indexOf(el.id);
+                                        this.getPage(el.id)
+                                    }
+                                );
                                 $nav.append($el);
+                                this.navTree.push(el.id);
                             } else {
                                 let $el = $(`<li>${el.name}<i class="material-icons">arrow_drop_down</i><ul class="collapse"></ul></li>`);
                                 $el.click(function () {
@@ -94,14 +101,28 @@ class Server {
                                     let $childEl = $(`<li>${childEl.name}</li>`);
                                     $childEl.click((e)=> {
                                         e.stopPropagation();
-                                        this.getPage(childEl.id)
+                                        this.getPage(childEl.id);
+                                        this.curPageIndex = this.navTree.indexOf(childEl.id);
                                     });
                                     $nav.find('ul').append($childEl);
+                                    this.navTree.push(childEl.id);
                                     console.log(childEl.name);
                                 });
                             }
                         });
                         $('#index').html($nav);
+                        $('.previous').click(()=> {
+                            if (this.curPageIndex > 0) {
+                                let i = --this.curPageIndex;
+                                this.getPage(this.navTree[i]);
+                            }
+                        });
+                        $('.next').click(()=> {
+                            if (this.curPageIndex < this.navTree.length - 1) {
+                                let i = ++this.curPageIndex;
+                                this.getPage(this.navTree[i]);
+                            }
+                        });
                     })
                 } else {
                     alert("Произошла ошибка! Номер ошибки: " + res.code);
